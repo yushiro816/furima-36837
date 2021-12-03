@@ -58,7 +58,7 @@
 - belongs_to_active_hash :category
 - belongs_to_active_hash :status
 - belongs_to_active_hash :cost
-- belongs_to_active_hash :days
+- belongs_to_active_hash :ship_day
 - ※ image=Active Storage
 
 ## buyers テーブル
