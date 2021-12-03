@@ -32,7 +32,7 @@
 
 ### Association
 
-- has_one :buyer
+- belongs_to  :buyer
 - belongs_to_active_hash :prefecture
 
 
@@ -67,8 +67,7 @@
 |------|----|-------|
 |user  | references | null: false, foreign_key: true |
 |item  | references | null: false, foreign_key: true |
-|destination| references | null: false, foreign_key: true |
 
 belongs_to :user
 belongs_to :item
-belongs_to :destination
+has_one :destination
