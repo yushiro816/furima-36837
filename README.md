@@ -17,7 +17,6 @@
 
 - has_many :items 
 - has_many :buyers
-- belongs_to :destination 
 
 ## destinations テーブル
 
@@ -28,12 +27,12 @@
 |city            | string  |  null: false      |
 |address         | string  |  null: false      |
 |building_name   | string  |                   | 
-|phon_number     | string  |                   |
-|user_id         | references |  null: false , foreign_key: true | 
+|phon_number     | string  |  null: false      |
+|buyer           | references |  null: false , foreign_key: true | 
 
 ### Association
 
-- belongs_to :user
+- has_one :buyer
 - belongs_to_active_hash :prefecture
 
 
@@ -47,14 +46,14 @@
 |status_id     | integer  |  null: false           |
 |cost_id       | integer  |  null: false           |
 |prefecture_id | integer  |  null: false           |
-|days_id       | integer  |  null: false           |
+|ship_day_id   | integer  |  null: false           |
 |price         | integer  |  null: false           |
-|user_id       | references  |  null: false , foreign_key: true |
+|user          | references |  null: false , foreign_key: true |
 
 ### Association
 
 - belongs_to :user 
-- belongs_to :buyer
+- has_one :buyer
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :category
 - belongs_to_active_hash :status
@@ -66,8 +65,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id| references | null: false, foreign_key: true |
-|item_id| references | null: false, foreign_key: true |
+|user  | references | null: false, foreign_key: true |
+|item  | references | null: false, foreign_key: true |
+|destination| references | null: false, foreign_key: true |
 
 belongs_to :user
-belongs_to :items
+belongs_to :item
+belongs_to :destination
